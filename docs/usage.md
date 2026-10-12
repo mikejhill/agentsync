@@ -8,7 +8,7 @@ Requires Python 3.12+. Until a PyPI release is published:
 uv tool install git+https://github.com/mikejhill/agentsync.git
 ```
 
-After publication, use `uv tool install agentsync`. Upgrade with `uv tool upgrade agentsync`.
+After publication, use `uv tool install agentsync-customizations`. Upgrade with `uv tool upgrade agentsync-customizations`. The installed command and Python import are `agentsync`.
 
 ## First distribution
 

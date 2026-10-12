@@ -232,9 +232,11 @@ class TestReaders:
 
     def test_frontmatter_plain_and_roundtrip(self) -> None:
         """Plain Markdown remains unchanged without invented metadata."""
-        assert Frontmatter.write({}, "body") == b"body"
+        plain = Frontmatter.write({}, "body")
+        serialized = Frontmatter.write({"name": "x"}, "body")
+        assert plain == b"body"
         assert Frontmatter.read(b"body") == ({}, "body")
-        assert Frontmatter.read(Frontmatter.write({"name": "x"}, "body")) == (
+        assert Frontmatter.read(serialized) == (
             {"name": "x"},
             "body",
         )

@@ -6,7 +6,7 @@ Register a pending publisher in the owning PyPI account before uploading the fir
 
 | Field | Production | Test index |
 |---|---|---|
-| Project | `agentsync` | `agentsync` |
+| Project | `agentsync-customizations` | `agentsync-customizations` |
 | GitHub owner | `mikejhill` | `mikejhill` |
 | Repository | `agentsync` | `agentsync` |
 | Workflow | `release.yml` | `release.yml` |
@@ -16,6 +16,8 @@ Register a pending publisher in the owning PyPI account before uploading the fir
 After registration, set the corresponding GitHub environment variable `PYPI_PUBLISH_ENABLED=true`. Environments require maintainer approval. Names must match exactly. A pending publisher does not reserve a project name; recheck before first release. See [PyPI's instructions](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/).
 
 The workflow uses OIDC and attestations. No long-lived PyPI token is required. Repository publication does not upload a package; the publisher gate remains disabled until registration is complete.
+
+The distribution name is `agentsync-customizations`; the CLI, Python import, GitHub repository, and XDG directory remain `agentsync`. PyPI rejected the shorter distribution name as too similar to an existing project.
 
 ## Prepare
 

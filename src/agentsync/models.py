@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+from abc import abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol
@@ -83,37 +84,41 @@ class Operation:
 class SourceProvider(Protocol):
     """Complete snapshot provider boundary."""
 
+    @abstractmethod
     def snapshot(self) -> Snapshot:
         """Return a complete revision."""
-        ...
+        raise NotImplementedError
 
 
 class CustomizationReader(Protocol):
     """Source interpretation boundary."""
 
+    @abstractmethod
     def read(
         self, snapshot: Snapshot, source: str, style: str
     ) -> tuple[Customization, ...]:
         """Interpret packages without losing metadata."""
-        ...
+        raise NotImplementedError
 
 
 class Transformation(Protocol):
     """Zero-to-many ordered transformation boundary."""
 
+    @abstractmethod
     def apply(
         self, items: tuple[Customization, ...], options: JsonObject
     ) -> tuple[Customization, ...]:
         """Return proposed customizations without destination writes."""
-        ...
+        raise NotImplementedError
 
 
 class DestinationRenderer(Protocol):
     """Harness rendering boundary."""
 
+    @abstractmethod
     def render(self, item: Customization) -> tuple[Output, ...]:
         """Return proposed outputs."""
-        ...
+        raise NotImplementedError
 
 
 class Digest:

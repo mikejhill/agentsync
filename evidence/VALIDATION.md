@@ -4,7 +4,7 @@ Date: 2026-10-11. Environment: Windows, Python 3.12.13.
 
 | Gate | Result |
 |---|---|
-| `uv run poe check` | Passed: 235 tests; 94.05% branch-enabled coverage |
+| `uv run poe check` | Passed: 235 tests; 93.92% branch-enabled coverage |
 | Ruff formatting/linting | Passed; cyclomatic complexity maximum 10 |
 | Strict `ty` | Passed; all rules configured as errors |
 | `uv build` | Wheel and source distribution built |
