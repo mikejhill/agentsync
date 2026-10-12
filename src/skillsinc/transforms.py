@@ -11,13 +11,13 @@ from dataclasses import replace
 from pathlib import Path
 from typing import cast
 
-from agentsync.config import Step
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json, JsonObject, JsonValue
-from agentsync.models import Customization, PackageFile, Transformation
-from agentsync.paths import SafePath
-from agentsync.readers import Frontmatter
-from agentsync.sources import LocalSource
+from skillsinc.config import Step
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject, JsonValue
+from skillsinc.models import Customization, PackageFile, Transformation
+from skillsinc.paths import SafePath
+from skillsinc.readers import Frontmatter
+from skillsinc.sources import LocalSource
 
 
 class Selection:
@@ -222,7 +222,7 @@ class ExecutableTransform:
         argv = Json.strings(options.get("argv"))
         if not argv:
             raise ConfigurationError("Executable transformation needs argv")
-        with tempfile.TemporaryDirectory(prefix="agentsync-transform-") as directory:
+        with tempfile.TemporaryDirectory(prefix="skillsinc-transform-") as directory:
             root = Path(directory)
             request = self._stage(items, root)
             content = self._execute(
@@ -353,7 +353,7 @@ class TransformRegistry:
         if name == "executable":
             return ExecutableTransform()
         entries = importlib.metadata.entry_points(
-            group="agentsync.transformations", name=name
+            group="skillsinc.transformations", name=name
         )
         if len(entries) != 1:
             raise ConfigurationError(f"Unknown or ambiguous transformation {name}")

@@ -8,13 +8,13 @@ import tomlkit
 from packaging.specifiers import InvalidSpecifier, SpecifierSet
 from packaging.version import InvalidVersion, Version
 
-from agentsync.config import Destination
-from agentsync.exceptions import ConfigurationError, ConversionError
-from agentsync.hooks import HookPolicy
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.models import Customization, Output
-from agentsync.paths import SafePath
-from agentsync.readers import Frontmatter
+from skillsinc.config import Destination
+from skillsinc.exceptions import ConfigurationError, ConversionError
+from skillsinc.hooks import HookPolicy
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.models import Customization, Output
+from skillsinc.paths import SafePath
+from skillsinc.readers import Frontmatter
 
 
 @dataclass(frozen=True, slots=True)
@@ -48,7 +48,7 @@ class HarnessContract:
             "agents": self.agent_directory,
             "prompts": self.prompt_directory,
             "mcp": self.config_file,
-            "reload": "Check harness documentation; AgentSync never restarts a harness",
+            "reload": "Check harness documentation; SkillSinc never restarts a harness",
             "hooks": (
                 "Native-profile pass-through only; cross-profile payload"
                 " conversion requires an explicit transformation"
@@ -690,7 +690,7 @@ class HarnessRenderer:
             else "hooks.json"
         )
         if self.contract.family == "copilot":
-            path = f"hooks/agentsync-{item.name}.json"
+            path = f"hooks/skillsinc-{item.name}.json"
             return (
                 self._output(
                     item,

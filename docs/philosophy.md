@@ -1,6 +1,6 @@
 # Philosophy
 
-**AgentSync distributes agent customizations. Users own distribution policy.**
+**SkillSinc distributes agent customizations. Users own distribution policy.**
 
 A customization is a distributable unit of instructions, configuration, or behavior, including supporting files. Skills, instructions, agents, prompts, hooks, and MCP declarations are kinds. A harness is the application that discovers and executes them.
 

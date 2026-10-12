@@ -10,8 +10,8 @@ import json5
 import tomlkit
 from tomlkit.exceptions import ParseError
 
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json, JsonObject, JsonValue
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject, JsonValue
 
 
 class JsoncEditor:
@@ -228,8 +228,8 @@ class Documents:
         """Return the managed-block pattern."""
         marker = re.escape(name)
         return (
-            rf"<!-- agentsync:{marker}:start -->\n(.*?)\n"
-            rf"<!-- agentsync:{marker}:end -->"
+            rf"<!-- skillsinc:{marker}:start -->\n(.*?)\n"
+            rf"<!-- skillsinc:{marker}:end -->"
         )
 
     @staticmethod
@@ -239,8 +239,8 @@ class Documents:
         if value is None:
             return re.sub(pattern, "", text, flags=re.DOTALL)
         block = (
-            f"<!-- agentsync:{name}:start -->\n{value.decode()}\n"
-            f"<!-- agentsync:{name}:end -->"
+            f"<!-- skillsinc:{name}:start -->\n{value.decode()}\n"
+            f"<!-- skillsinc:{name}:end -->"
         )
         if re.search(pattern, text, re.DOTALL):
             return re.sub(pattern, lambda _: block, text, flags=re.DOTALL)

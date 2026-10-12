@@ -1,20 +1,20 @@
 # Extension API v1
 
-Constructor injection and structural protocols are defined in `agentsync.models`. Extensions are installed trusted Python code. They cannot be declared by downloaded repositories.
+Constructor injection and structural protocols are defined in `skillsinc.models`. Extensions are installed trusted Python code. They cannot be declared by downloaded repositories.
 
 | Python entry-point group | Constructor | Protocol |
 |---|---|---|
-| `agentsync.sources` | `(Source, cache_root)` | `snapshot() -> Snapshot` |
-| `agentsync.readers` | `()` | `read(snapshot, source_name, style) -> tuple[Customization, ...]` |
-| `agentsync.transformations` | `()` | `apply(items, options) -> tuple[Customization, ...]` |
-| `agentsync.renderers` | `(Destination)` | `render(item) -> tuple[Output, ...]` |
+| `skillsinc.sources` | `(Source, cache_root)` | `snapshot() -> Snapshot` |
+| `skillsinc.readers` | `()` | `read(snapshot, source_name, style) -> tuple[Customization, ...]` |
+| `skillsinc.transformations` | `()` | `apply(items, options) -> tuple[Customization, ...]` |
+| `skillsinc.renderers` | `(Destination)` | `render(item) -> tuple[Output, ...]` |
 
 Transformations may filter, split, or compose packages. Preserve `source`, `origins`, `style`, metadata, file contents, and permissions unless the configured transformation intentionally changes them. `origins` tracks original source identities through renaming and composition. Renderers return complete files or structured slots; they never write destinations. New kinds/providers/renderers require no reconciliation changes.
 
 Register a transformation:
 
 ```toml
-[project.entry-points."agentsync.transformations"]
+[project.entry-points."skillsinc.transformations"]
 my-transform = "my_package:MyTransformation"
 ```
 

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Adopt SkillSinc branding and `skillsinc` for the package, CLI, import, extension groups, and XDG directories.
 - Source-authoritative customization distribution, configurable routes, and ordered transformations.
 - Generic distribution and conservative contracts for Claude, Codex, Copilot, Cursor, Gemini, OpenCode, and shared skills.
 - Ownership of files and document entries, journaled recovery, drift repair, and explicit adoption.

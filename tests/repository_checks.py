@@ -11,11 +11,11 @@ from zipfile import ZipFile
 
 import yaml
 
-from agentsync import __version__
-from agentsync.config import Configuration
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json
-from agentsync.paths import XdgPaths
+from skillsinc import __version__
+from skillsinc.config import Configuration
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json
+from skillsinc.paths import XdgPaths
 
 
 class RepositoryChecks:
@@ -90,7 +90,7 @@ class RepositoryChecks:
         version = Json.string(project["version"])
         if version != __version__:
             raise ConfigurationError(
-                "pyproject.toml and agentsync.__version__ disagree"
+                "pyproject.toml and skillsinc.__version__ disagree"
             )
         if tag is not None and tag != f"v{version}":
             raise ConfigurationError(f"Release tag must be v{version}")
@@ -105,11 +105,11 @@ class RepositoryChecks:
         with ZipFile(wheels[0]) as archive:
             names = set(archive.namelist())
             required = {
-                "agentsync/__main__.py",
-                "agentsync/py.typed",
-                "agentsync/data/config.schema.json",
-                "agentsync/data/contracts-v1.json",
-                "agentsync/data/default-recipe.json",
+                "skillsinc/__main__.py",
+                "skillsinc/py.typed",
+                "skillsinc/data/config.schema.json",
+                "skillsinc/data/contracts-v1.json",
+                "skillsinc/data/default-recipe.json",
             }
             if not required <= names or not any(
                 name.endswith("/licenses/LICENSE") for name in names

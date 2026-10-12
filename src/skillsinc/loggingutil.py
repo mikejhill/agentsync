@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from typing import override
 
-from agentsync.jsonutil import Json
+from skillsinc.jsonutil import Json
 
 
 class StructuredFormatter(logging.Formatter):

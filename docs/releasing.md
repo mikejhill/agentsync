@@ -6,9 +6,9 @@ Register a pending publisher in the owning PyPI account before uploading the fir
 
 | Field | Production | Test index |
 |---|---|---|
-| Project | `agentsync-customizations` | `agentsync-customizations` |
+| Project | `skillsinc` | `skillsinc` |
 | GitHub owner | `mikejhill` | `mikejhill` |
-| Repository | `agentsync` | `agentsync` |
+| Repository | `skillsinc` | `skillsinc` |
 | Workflow | `release.yml` | `release.yml` |
 | Environment | `pypi` | `testpypi` |
 | Registration | [PyPI account publishing](https://pypi.org/manage/account/publishing/) | [TestPyPI account publishing](https://test.pypi.org/manage/account/publishing/) |
@@ -17,11 +17,11 @@ After registration, set the corresponding GitHub environment variable `PYPI_PUBL
 
 The workflow uses OIDC and attestations. No long-lived PyPI token is required. Repository publication does not upload a package; the publisher gate remains disabled until registration is complete.
 
-The distribution name is `agentsync-customizations`; the CLI, Python import, GitHub repository, and XDG directory remain `agentsync`. PyPI rejected the shorter distribution name as too similar to an existing project.
+Use `skillsinc` consistently for the distribution, CLI, Python import, GitHub repository, and XDG directory. The product name is SkillSinc.
 
 ## Prepare
 
-1. Open a release PR. Match versions in `pyproject.toml` and `src/agentsync/__init__.py`; CLI version derives from the latter.
+1. Open a release PR. Match versions in `pyproject.toml` and `src/skillsinc/__init__.py`; CLI version derives from the latter.
 2. Run `uv lock`, date the changelog, and document conversion losses and open native gates.
 3. Run `uv run poe check`, `uv build`, `uv run poe package-check`, and `uv run python -m tests.repository_checks --dist dist`.
 4. Require green `CI` and `Security`. Review three-platform installed-CLI artifacts, mutations, and native/performance evidence. Record alpha-only limitations without marking unverified behavior verified.
@@ -33,7 +33,7 @@ For the initial release, the existing version `0.1.0` may remain unchanged. Repl
 
 ```console
 git fetch origin
-git tag -a v0.1.0 origin/main -m "AgentSync 0.1.0"
+git tag -a v0.1.0 origin/main -m "SkillSinc 0.1.0"
 git push origin v0.1.0
 gh workflow run release.yml --ref main -f tag=v0.1.0 -f index=testpypi
 ```
@@ -43,7 +43,7 @@ Approve `testpypi`, inspect artifacts/attestations, and test installation with a
 Create release notes listing changes, fidelity limits, migration needs, and evidence, then publish a GitHub release:
 
 ```console
-gh release create v0.1.0 --verify-tag --title "AgentSync 0.1.0" --notes-file release-notes.md
+gh release create v0.1.0 --verify-tag --title "SkillSinc 0.1.0" --notes-file release-notes.md
 ```
 
 The release event reruns CI and security on the tag, verifies version/main ancestry, builds distributions, and awaits `pypi` approval. The publishing job receives artifacts and OIDC permission without checking out source or running tests. After PyPI succeeds, a separate job attaches those same artifacts to the GitHub release.

@@ -10,9 +10,9 @@ import tomlkit
 from hypothesis import given
 from hypothesis import strategies as st
 
-from agentsync.documents import Documents
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json
+from skillsinc.documents import Documents
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json
 
 
 class TestDocuments:

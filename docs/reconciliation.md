@@ -2,9 +2,9 @@
 
 ## Ownership
 
-SQLite under `$XDG_STATE_HOME/agentsync/` records owned files and named entries in shared documents. Unrelated entries and supported document formatting remain intact. An existing unmanaged path or key blocks a conflicting output, even when its content happens to match.
+SQLite under `$XDG_STATE_HOME/skillsinc/` records owned files and named entries in shared documents. Unrelated entries and supported document formatting remain intact. An existing unmanaged path or key blocks a conflicting output, even when its content happens to match.
 
-`agentsync adopt` explicitly enrolls collisions encountered in the desired plan. Inspect `plan` first and limit adoption with `--target`. Adoption follows the configured desired content; it is not an import of all existing destination content.
+`skillsinc adopt` explicitly enrolls collisions encountered in the desired plan. Inspect `plan` first and limit adoption with `--target`. Adoption follows the configured desired content; it is not an import of all existing destination content.
 
 ## Desired state and deletion
 

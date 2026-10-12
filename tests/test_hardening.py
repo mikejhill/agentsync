@@ -16,27 +16,27 @@ from tests.conftest import Sandbox
 from watchdog.events import FileModifiedEvent, FileOpenedEvent, FileSystemEventHandler
 from watchdog.observers.api import BaseObserver, ObservedWatch
 
-from agentsync.__main__ import Application
-from agentsync.cache import ConversionCache
-from agentsync.config import Destination, Settings
-from agentsync.contracts import HarnessRenderer
-from agentsync.documents import Documents
-from agentsync.engine import DistributionPlanner, Engine
-from agentsync.exceptions import (
+from skillsinc.__main__ import Application
+from skillsinc.cache import ConversionCache
+from skillsinc.config import Destination, Settings
+from skillsinc.contracts import HarnessRenderer
+from skillsinc.documents import Documents
+from skillsinc.engine import DistributionPlanner, Engine
+from skillsinc.exceptions import (
     ConfigurationError,
     ConflictError,
     ConversionError,
     SourceError,
 )
-from agentsync.hooks import HookPolicy
-from agentsync.jsonutil import Json, JsonObject, JsonValue
-from agentsync.models import Customization, Output, PackageFile
-from agentsync.readers import PackageReader
-from agentsync.service_runner import ServiceRunner
-from agentsync.sources import GitSource, LocalSource
-from agentsync.transactions import TransactionManager
-from agentsync.transforms import ExecutableTransform
-from agentsync.watch import ChangeHandler, WatchCoordinator
+from skillsinc.hooks import HookPolicy
+from skillsinc.jsonutil import Json, JsonObject, JsonValue
+from skillsinc.models import Customization, Output, PackageFile
+from skillsinc.readers import PackageReader
+from skillsinc.service_runner import ServiceRunner
+from skillsinc.sources import GitSource, LocalSource
+from skillsinc.transactions import TransactionManager
+from skillsinc.transforms import ExecutableTransform
+from skillsinc.watch import ChangeHandler, WatchCoordinator
 
 
 class TestHardening:
@@ -387,7 +387,7 @@ class TestWatcherLifecycle:
         settings: Settings = sandbox.config()
         sandbox.put("instructions/rule.md")
         observer = FakeObserver()
-        monkeypatch.setattr("agentsync.watch.Observer", lambda: observer)
+        monkeypatch.setattr("skillsinc.watch.Observer", lambda: observer)
         watcher = WatchCoordinator(sandbox.paths, settings.file)
         watcher.stop = ImmediateStop()
         handler = ChangeHandler(watcher.changed)

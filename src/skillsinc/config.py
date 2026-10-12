@@ -5,10 +5,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from agentsync.catalog import Catalog
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json, JsonObject, JsonValue
-from agentsync.paths import SafePath, XdgPaths
+from skillsinc.catalog import Catalog
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject, JsonValue
+from skillsinc.paths import SafePath, XdgPaths
 
 
 @dataclass(frozen=True, slots=True)
@@ -86,7 +86,7 @@ class Configuration:
             self.initialize()
         if not selected.is_file():
             raise ConfigurationError(
-                f"Configuration missing: {selected}; run agentsync init"
+                f"Configuration missing: {selected}; run skillsinc init"
             )
         return self.parse(
             Json.object(Json.loads(selected.read_text(encoding="utf-8"))), selected

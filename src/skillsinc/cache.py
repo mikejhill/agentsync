@@ -5,12 +5,12 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from agentsync import EXTENSION_API_VERSION, __version__
-from agentsync.config import Destination, Step
-from agentsync.exceptions import AppError
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.models import Customization, Digest, Output
-from agentsync.transactions import OutputCodec
+from skillsinc import EXTENSION_API_VERSION, __version__
+from skillsinc.config import Destination, Step
+from skillsinc.exceptions import AppError
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.models import Customization, Digest, Output
+from skillsinc.transactions import OutputCodec
 
 logger = logging.getLogger(__name__)
 

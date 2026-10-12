@@ -6,8 +6,8 @@ import os
 import sys
 from pathlib import Path
 
-from agentsync.__main__ import Application
-from agentsync.jsonutil import Json
+from skillsinc.__main__ import Application
+from skillsinc.jsonutil import Json
 
 
 class ServiceRunner:

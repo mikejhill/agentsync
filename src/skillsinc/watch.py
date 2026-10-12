@@ -14,11 +14,11 @@ from watchdog.events import FileSystemEvent, FileSystemEventHandler
 from watchdog.observers import Observer
 from watchdog.observers.api import BaseObserver
 
-from agentsync.config import Configuration, Settings
-from agentsync.engine import Engine
-from agentsync.exceptions import AppError
-from agentsync.jsonutil import JsonObject
-from agentsync.paths import XdgPaths
+from skillsinc.config import Configuration, Settings
+from skillsinc.engine import Engine
+from skillsinc.exceptions import AppError
+from skillsinc.jsonutil import JsonObject
+from skillsinc.paths import XdgPaths
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +34,7 @@ class ChangeHandler(FileSystemEventHandler):
     def on_any_event(self, event: FileSystemEvent) -> None:
         """Ignore read-only events to prevent feedback from scans."""
         path = Path(os.fsdecode(event.src_path)).absolute()
-        if path.name.startswith(".agentsync-") or any(
+        if path.name.startswith(".skillsinc-") or any(
             path.is_relative_to(root) for root in self.ignored
         ):
             return

@@ -12,18 +12,18 @@ from typing import cast
 
 from filelock import FileLock
 
-from agentsync.cache import ConversionCache
-from agentsync.config import Destination, Route, Settings, Source, Step
-from agentsync.contracts import ContractRegistry, HarnessRenderer
-from agentsync.exceptions import (
+from skillsinc.cache import ConversionCache
+from skillsinc.config import Destination, Route, Settings, Source, Step
+from skillsinc.contracts import ContractRegistry, HarnessRenderer
+from skillsinc.exceptions import (
     AppError,
     ConfigurationError,
     ConflictError,
     ConversionError,
     SourceError,
 )
-from agentsync.jsonutil import Json, JsonObject, JsonValue
-from agentsync.models import (
+from skillsinc.jsonutil import Json, JsonObject, JsonValue
+from skillsinc.models import (
     Customization,
     CustomizationReader,
     DestinationRenderer,
@@ -32,13 +32,13 @@ from agentsync.models import (
     Snapshot,
     SourceProvider,
 )
-from agentsync.paths import XdgPaths
-from agentsync.readers import PackageReader
-from agentsync.reconcile import Reconciler
-from agentsync.sources import GitSource, LocalSource
-from agentsync.state import OwnershipStore
-from agentsync.transactions import TransactionManager
-from agentsync.transforms import Selection, TransformRegistry
+from skillsinc.paths import XdgPaths
+from skillsinc.readers import PackageReader
+from skillsinc.reconcile import Reconciler
+from skillsinc.sources import GitSource, LocalSource
+from skillsinc.state import OwnershipStore
+from skillsinc.transactions import TransactionManager
+from skillsinc.transforms import Selection, TransformRegistry
 
 
 @dataclass(frozen=True, slots=True)
@@ -92,7 +92,7 @@ class DistributionPlanner:
         if source.provider == "git":
             return GitSource(source, self.paths.cache, fetch=fetch)
         instance = ExtensionRegistry.load(
-            "agentsync.sources", source.provider, source, self.paths.cache
+            "skillsinc.sources", source.provider, source, self.paths.cache
         )
         # Trusted provider entry points implement the documented structural protocol.
         return cast(SourceProvider, instance)
@@ -157,7 +157,7 @@ class DistributionPlanner:
                     # Reader plugins are installed trusted structural collaborators.
                     reader = cast(
                         CustomizationReader,
-                        ExtensionRegistry.load("agentsync.readers", source.reader),
+                        ExtensionRegistry.load("skillsinc.readers", source.reader),
                     )
                 collections[source.name] = tuple(
                     item
@@ -258,7 +258,7 @@ class DistributionPlanner:
             return cast(
                 DestinationRenderer,
                 ExtensionRegistry.load(
-                    "agentsync.renderers", Json.string(name), destination
+                    "skillsinc.renderers", Json.string(name), destination
                 ),
             )
         return HarnessRenderer(destination, approximate=approximate)
@@ -394,7 +394,7 @@ class Engine:
         if not apply:
             return self._run(settings, targets, apply=False, adopt=adopt, fetch=fetch)
         self.paths.state.mkdir(parents=True, exist_ok=True)
-        locks = Path(tempfile.gettempdir()) / "agentsync-locks"
+        locks = Path(tempfile.gettempdir()) / "skillsinc-locks"
         locks.mkdir(parents=True, exist_ok=True)
         with ExitStack() as stack:
             stack.enter_context(FileLock(str(locks / "distribution.lock"), timeout=30))
@@ -444,7 +444,7 @@ class Engine:
                     *plan.outputs,
                     *(
                         Output(
-                            destination.location / ".agentsync-commit-group",
+                            destination.location / ".skillsinc-commit-group",
                             b"",
                             destination.name,
                             (),

@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
-from agentsync.exceptions import ConfigurationError
+from skillsinc.exceptions import ConfigurationError
 
 
 @dataclass(frozen=True, slots=True)
@@ -34,7 +34,7 @@ class XdgPaths:
             root = Path(raw) if bool(raw) else Path.home() / default
             if not root.is_absolute():
                 raise ConfigurationError(f"{variable} must be absolute")
-            roots.append(root / "agentsync")
+            roots.append(root / "skillsinc")
         return cls(*roots)
 
 

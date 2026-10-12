@@ -9,7 +9,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from agentsync.jsonutil import Json, JsonObject
+from skillsinc.jsonutil import Json, JsonObject
 
 
 class InstalledSmoke:
@@ -36,7 +36,7 @@ class InstalledSmoke:
             self.environment[key] = str(root / folder)
         (root / "home").mkdir()
         self.executable = (
-            root / "bin" / ("agentsync.exe" if os.name == "nt" else "agentsync")
+            root / "bin" / ("skillsinc.exe" if os.name == "nt" else "skillsinc")
         )
         self.checks: list[str] = []
 
@@ -60,13 +60,13 @@ class InstalledSmoke:
                 sys.executable,
                 "--from",
                 str(self.wheel),
-                "agentsync-customizations",
+                "skillsinc",
             ]
         )
         self.command("init")
-        file = self.root / "config/agentsync/config.json"
+        file = self.root / "config/skillsinc/config.json"
         data = Json.object(Json.loads(file.read_text(encoding="utf-8")))
-        source = self.root / "config/agentsync/customizations/instructions/rule.md"
+        source = self.root / "config/skillsinc/customizations/instructions/rule.md"
         target = self.root / "target/instructions/rule/rule.md"
         source_name = next(iter(Json.object(data["sources"])))
         data["destinations"] = {
@@ -129,7 +129,7 @@ class InstalledSmoke:
         arguments = parser.parse_args()
         try:
             with tempfile.TemporaryDirectory(
-                prefix="agentsync-installed-"
+                prefix="skillsinc-installed-"
             ) as directory:
                 report = cls(Path(directory), arguments.wheel).run()
         except subprocess.CalledProcessError as error:

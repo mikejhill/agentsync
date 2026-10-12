@@ -8,12 +8,12 @@ from pathlib import Path
 
 import pytest
 
-from agentsync.config import Step
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.models import Customization, PackageFile, Snapshot
-from agentsync.readers import Frontmatter, PackageReader
-from agentsync.transforms import (
+from skillsinc.config import Step
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.models import Customization, PackageFile, Snapshot
+from skillsinc.readers import Frontmatter, PackageReader
+from skillsinc.transforms import (
     BuiltinTransform,
     ExecutableTransform,
     Selection,

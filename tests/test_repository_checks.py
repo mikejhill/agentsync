@@ -7,8 +7,8 @@ from pathlib import Path
 import pytest
 from tests.repository_checks import RepositoryChecks
 
-from agentsync import __version__
-from agentsync.exceptions import ConfigurationError
+from skillsinc import __version__
+from skillsinc.exceptions import ConfigurationError
 
 
 class TestRepositoryChecks:

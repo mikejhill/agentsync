@@ -15,12 +15,12 @@ from typing import override
 import pytest
 from tests.conftest import Sandbox
 
-from agentsync.__main__ import Application
-from agentsync.exceptions import TransactionError
-from agentsync.jsonutil import Json
-from agentsync.models import Operation, Output
-from agentsync.state import OwnershipStore
-from agentsync.transactions import TransactionManager
+from skillsinc.__main__ import Application
+from skillsinc.exceptions import TransactionError
+from skillsinc.jsonutil import Json
+from skillsinc.models import Operation, Output
+from skillsinc.state import OwnershipStore
+from skillsinc.transactions import TransactionManager
 
 
 class FailingOwnership(OwnershipStore):
@@ -115,7 +115,7 @@ class TestRuntimeFailures:
         command = [
             sys.executable,
             "-m",
-            "agentsync",
+            "skillsinc",
             "sync",
             "--config-file",
             str(settings.file),
@@ -147,7 +147,7 @@ class TestRuntimeFailures:
         command = [
             sys.executable,
             "-m",
-            "agentsync",
+            "skillsinc",
             "watch",
             "--config-file",
             str(settings.file),

@@ -9,16 +9,16 @@ from collections.abc import Sequence
 
 from filelock import Timeout
 
-from agentsync.cli import Command, CommandLine
-from agentsync.config import Configuration, Settings
-from agentsync.contracts import ContractRegistry
-from agentsync.engine import Engine
-from agentsync.exceptions import AppError, ConfigurationError
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.loggingutil import StructuredFormatter
-from agentsync.paths import XdgPaths
-from agentsync.services import ServiceManager
-from agentsync.watch import WatchCoordinator
+from skillsinc.cli import Command, CommandLine
+from skillsinc.config import Configuration, Settings
+from skillsinc.contracts import ContractRegistry
+from skillsinc.engine import Engine
+from skillsinc.exceptions import AppError, ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.loggingutil import StructuredFormatter
+from skillsinc.paths import XdgPaths
+from skillsinc.services import ServiceManager
+from skillsinc.watch import WatchCoordinator
 
 logger = logging.getLogger(__name__)
 
