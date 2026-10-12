@@ -1,0 +1,27 @@
+name: Defect
+description: Incorrect distribution, conversion, or CLI behavior
+labels: [bug]
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include a sanitized configuration and customization. Remove credentials.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: AgentSync version, OS, Python, and harness/version/scope
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized plan/status diagnostics

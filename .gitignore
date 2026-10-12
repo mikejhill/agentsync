@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.coverage*
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+reports/
+*.log
+.env
+.env.*
+!.env.example
+evidence/coverage.json
+evidence/artifact-sha256.json
+evidence/wheel-smoke.json

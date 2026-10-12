@@ -1,0 +1,17 @@
+name: Capability request
+description: A concrete workflow, extension, or harness capability
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Workflow and problem
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Expected semantics and acceptance criteria
+      description: For harness changes, link vendor documentation and identify conversion losses.
+    validations:
+      required: true
