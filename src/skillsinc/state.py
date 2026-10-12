@@ -6,8 +6,8 @@ import sqlite3
 from contextlib import closing
 from pathlib import Path
 
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.models import Digest, Output
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.models import Digest, Output
 
 
 class OwnershipStore:

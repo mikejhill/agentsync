@@ -13,7 +13,7 @@
       "native_verified": false,
       "profile": "generic",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -29,7 +29,7 @@
       "native_verified": false,
       "profile": "shared",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -45,7 +45,7 @@
       "native_verified": false,
       "profile": "claude",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -61,7 +61,7 @@
       "native_verified": false,
       "profile": "codex",
       "prompts": "prompts",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -77,7 +77,7 @@
       "native_verified": false,
       "profile": "codex-desktop",
       "prompts": "prompts",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -93,7 +93,7 @@
       "native_verified": false,
       "profile": "copilot-cli",
       "prompts": "prompts",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -109,7 +109,7 @@
       "native_verified": false,
       "profile": "copilot-vscode",
       "prompts": "prompts",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -125,7 +125,7 @@
       "native_verified": false,
       "profile": "cursor-ide",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -141,7 +141,7 @@
       "native_verified": false,
       "profile": "cursor-cli",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -157,7 +157,7 @@
       "native_verified": false,
       "profile": "gemini",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     },
     {
@@ -173,7 +173,7 @@
       "native_verified": false,
       "profile": "opencode",
       "prompts": "commands",
-      "reload": "Check harness documentation; AgentSync never restarts a harness",
+      "reload": "Check harness documentation; SkillSinc never restarts a harness",
       "tested_runtime_versions": []
     }
   ],

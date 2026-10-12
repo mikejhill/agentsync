@@ -11,7 +11,7 @@ from pathlib import Path
 
 import yaml
 
-from agentsync.jsonutil import Json
+from skillsinc.jsonutil import Json
 
 
 class WorkflowChecks:
@@ -33,7 +33,7 @@ class WorkflowChecks:
             if arguments.executable
             else ["go", "run", f"github.com/rhysd/actionlint/cmd/actionlint@v{version}"]
         )
-        with tempfile.TemporaryDirectory(prefix="agentsync-actionlint-") as directory:
+        with tempfile.TemporaryDirectory(prefix="skillsinc-actionlint-") as directory:
             file = Path(directory) / "actionlint.yaml"
             file.write_text(yaml.safe_dump(configuration), encoding="utf-8")
             result = subprocess.run(  # noqa: S603 - fixed tool argv and declared labels

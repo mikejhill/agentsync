@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.index || 'pypi' }}
-      url: ${{ inputs.index == 'testpypi' && 'https://test.pypi.org/p/agentsync-customizations' || 'https://pypi.org/p/agentsync-customizations' }}
+      url: ${{ inputs.index == 'testpypi' && 'https://test.pypi.org/p/skillsinc' || 'https://pypi.org/p/skillsinc' }}
     permissions:
       contents: read
       id-token: write

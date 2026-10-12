@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:agentsync:configuration:1",
-  "title": "AgentSync orchestration envelope v1",
+  "$id": "urn:skillsinc:configuration:1",
+  "title": "SkillSinc orchestration envelope v1",
   "type": "object",
   "required": ["version"],
   "properties": {

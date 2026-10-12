@@ -6,10 +6,10 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-from agentsync.documents import Documents
-from agentsync.exceptions import ConflictError
-from agentsync.models import Operation, Output
-from agentsync.transactions import TransactionManager
+from skillsinc.documents import Documents
+from skillsinc.exceptions import ConflictError
+from skillsinc.models import Operation, Output
+from skillsinc.transactions import TransactionManager
 
 
 @dataclass(frozen=True, slots=True)

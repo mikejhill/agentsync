@@ -20,3 +20,4 @@ reports/
 evidence/coverage.json
 evidence/artifact-sha256.json
 evidence/wheel-smoke.json
+evidence/installed-smoke.json

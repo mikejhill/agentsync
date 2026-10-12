@@ -7,10 +7,10 @@ from pathlib import Path
 import pytest
 from tests.conftest import Sandbox
 
-from agentsync.config import Configuration
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json
-from agentsync.paths import SafePath, XdgPaths
+from skillsinc.config import Configuration
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json
+from skillsinc.paths import SafePath, XdgPaths
 
 
 class TestConfiguration:
@@ -170,7 +170,7 @@ class TestPaths:
             "XDG_CACHE_HOME",
         ):
             monkeypatch.delenv(variable)
-        assert XdgPaths.discover().config == Path.home() / ".config/agentsync"
+        assert XdgPaths.discover().config == Path.home() / ".config/skillsinc"
 
 
 class TestJsonBoundary:

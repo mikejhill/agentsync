@@ -1,5 +1,5 @@
 [project]
-name = "agentsync-customizations"
+name = "skillsinc"
 version = "0.1.0"
 description = "Source-authoritative agent customization distribution"
 readme = "README.md"
@@ -30,14 +30,14 @@ dependencies = [
 ]
 
 [project.scripts]
-agentsync = "agentsync.__main__:Application.main"
+skillsinc = "skillsinc.__main__:Application.main"
 
 [project.urls]
-Homepage = "https://github.com/mikejhill/agentsync"
-Documentation = "https://github.com/mikejhill/agentsync/tree/main/docs"
-Repository = "https://github.com/mikejhill/agentsync"
-Issues = "https://github.com/mikejhill/agentsync/issues"
-Changelog = "https://github.com/mikejhill/agentsync/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/mikejhill/skillsinc"
+Documentation = "https://github.com/mikejhill/skillsinc/tree/main/docs"
+Repository = "https://github.com/mikejhill/skillsinc"
+Issues = "https://github.com/mikejhill/skillsinc/issues"
+Changelog = "https://github.com/mikejhill/skillsinc/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.11.32,<0.12.0"]
@@ -90,7 +90,7 @@ xfail_strict = true
 markers = ["performance: dedicated-runner benchmarks", "native: opt-in native discovery"]
 
 [tool.coverage.run]
-source = ["agentsync"]
+source = ["skillsinc"]
 branch = true
 
 [tool.coverage.report]
@@ -114,8 +114,8 @@ workflow-check = "python -m tests.workflow_checks"
 
 [tool.actionlint]
 version = "1.7.12"
-self-hosted-runner = { labels = ["agentsync-performance"] }
+self-hosted-runner = { labels = ["skillsinc-performance"] }
 
 [tool.uv.build-backend]
-module-name = "agentsync"
+module-name = "skillsinc"
 source-include = ["docs/**", "tests/**", ".github/**", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "uv.lock"]

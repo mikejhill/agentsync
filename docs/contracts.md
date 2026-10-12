@@ -11,7 +11,7 @@ Treat `location` as the appropriate native customization directory unless the ta
 | Claude Code | `CLAUDE.md`; scoped `rules/*.md` with `paths` | `skills/*/SKILL.md` | `agents/*.md`; `commands/*.md` | User sibling `.claude.json`; project `.mcp.json`; native grouped hooks in `settings.json` |
 | Codex CLI | `AGENTS.md` under native config/project scope; path-scoped conversion needs opt-in | Route to shared `.agents` explicitly | `agents/*.toml`; `prompts/*.md` | `config.toml` `mcp_servers`; grouped `hooks.json` |
 | Codex desktop | Same filesystem contract as CLI; runtime verification separate | Shared `.agents` | TOML agent definitions; prompt discovery requires native evidence | Same native config layer; never changes cloud settings |
-| Copilot CLI | Native `copilot-instructions.md`; scoped `instructions/*.instructions.md` | Native `skills/` or shared `.agents` | Markdown `agents/`; standalone prompts unsupported by this profile | `mcp-config.json`; owned `hooks/agentsync-NAME.json` |
+| Copilot CLI | Native `copilot-instructions.md`; scoped `instructions/*.instructions.md` | Native `skills/` or shared `.agents` | Markdown `agents/`; standalone prompts unsupported by this profile | `mcp-config.json`; owned `hooks/skillsinc-NAME.json` |
 | VS Code Copilot | User `.copilot/copilot-instructions.md` and `instructions/`; project `.github/copilot-instructions.md` and `instructions/` | Native Copilot skills or shared skills | Native agent files; prompt files require `options.variant: local` | Agent Host user `mcp-config.json`, project root `.mcp.json`; Local `mcp.json` with `servers`; native hook files |
 | Cursor IDE | Project `AGENTS.md` and `.cursor/rules/*.mdc` | `.cursor/skills/` or shared skills | Native `agents/` and `commands/` formats | `mcp.json`; `hooks.json` with schema version and native lower-camel events |
 | Cursor CLI | Profile tracked separately; native discovery requires smoke evidence | Native/shared skills | Basic formats only; invocation differences need explicit mapping | Native MCP/hook declarations; no guessed event substitutions |
@@ -65,7 +65,7 @@ Hooks remain inert during distribution. Their originating harness determines inp
 
 ## Precedence, reload, and native evidence
 
-AgentSync writes only the configured native layer. It does not override vendor precedence, project trust, organization policy, feature flags, or remote/cloud customization discovery. Vendor precedence and discovery settings must be tested in the actual selected runtime before approving a release.
+SkillSinc writes only the configured native layer. It does not override vendor precedence, project trust, organization policy, feature flags, or remote/cloud customization discovery. Vendor precedence and discovery settings must be tested in the actual selected runtime before approving a release.
 
 Use fresh harness sessions after distribution for native discovery tests. Confirm skill/agent/prompt presence, scoped instruction activation, MCP transport startup, and hook payload/decision behavior independently. Record exact runtime versions, OS, profile, scope, command, result, and reload requirements. Update the contract version and fixtures when vendor semantics change.
 

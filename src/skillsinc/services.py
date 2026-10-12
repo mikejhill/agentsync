@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-from agentsync.exceptions import AppError
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.paths import XdgPaths
+from skillsinc.exceptions import AppError
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.paths import XdgPaths
 
 
 @dataclass(frozen=True, slots=True)
@@ -50,7 +50,7 @@ class ServiceManager:
         argv = (
             str(self.executable),
             "-m",
-            "agentsync.service_runner",
+            "skillsinc.service_runner",
             str(self.paths.data / "startup/environment.json"),
             "watch",
             "--config-file",
@@ -144,20 +144,20 @@ class ServiceManager:
         return ServiceDefinition(
             path,
             xml.encode("utf-16"),
-            (("schtasks", "/Create", "/TN", "AgentSync", "/XML", str(path), "/F"),),
-            ("schtasks", "/Run", "/TN", "AgentSync"),
-            ("schtasks", "/End", "/TN", "AgentSync"),
-            (("schtasks", "/Delete", "/TN", "AgentSync", "/F"),),
-            ("schtasks", "/Query", "/TN", "AgentSync"),
+            (("schtasks", "/Create", "/TN", "SkillSinc", "/XML", str(path), "/F"),),
+            ("schtasks", "/Run", "/TN", "SkillSinc"),
+            ("schtasks", "/End", "/TN", "SkillSinc"),
+            (("schtasks", "/Delete", "/TN", "SkillSinc", "/F"),),
+            ("schtasks", "/Query", "/TN", "SkillSinc"),
         )
 
     def _macos(self, argv: tuple[str, ...]) -> ServiceDefinition:
         """Create a user LaunchAgent with restart and log handling."""
-        path = Path.home() / "Library/LaunchAgents/dev.agentsync.watch.plist"
+        path = Path.home() / "Library/LaunchAgents/dev.skillsinc.watch.plist"
         getuid = getattr(os, "getuid", None)
         domain = f"gui/{getuid() if getuid is not None else 0}"
         payload = {
-            "Label": "dev.agentsync.watch",
+            "Label": "dev.skillsinc.watch",
             "ProgramArguments": list(argv),
             "RunAtLoad": True,
             "KeepAlive": True,
@@ -167,10 +167,10 @@ class ServiceManager:
             path,
             plistlib.dumps(payload),
             (("launchctl", "bootstrap", domain, str(path)),),
-            ("launchctl", "kickstart", f"{domain}/dev.agentsync.watch"),
-            ("launchctl", "kill", "SIGTERM", f"{domain}/dev.agentsync.watch"),
+            ("launchctl", "kickstart", f"{domain}/dev.skillsinc.watch"),
+            ("launchctl", "kill", "SIGTERM", f"{domain}/dev.skillsinc.watch"),
             (("launchctl", "bootout", domain, str(path)),),
-            ("launchctl", "print", f"{domain}/dev.agentsync.watch"),
+            ("launchctl", "print", f"{domain}/dev.skillsinc.watch"),
         )
 
     def _linux(self, argv: tuple[str, ...]) -> ServiceDefinition:
@@ -188,9 +188,9 @@ class ServiceManager:
             for part in argv
         )
         if systemd:
-            path = config_root / "systemd/user/agentsync.service"
+            path = config_root / "systemd/user/skillsinc.service"
             content = (
-                "[Unit]\nDescription=AgentSync customization distribution\n"
+                "[Unit]\nDescription=SkillSinc customization distribution\n"
                 f"[Service]\nExecStart={command}\nRestart=on-failure\n"
                 "[Install]\nWantedBy=default.target\n"
             ).encode()
@@ -199,18 +199,18 @@ class ServiceManager:
                 content,
                 (
                     ("systemctl", "--user", "daemon-reload"),
-                    ("systemctl", "--user", "enable", "agentsync.service"),
+                    ("systemctl", "--user", "enable", "skillsinc.service"),
                 ),
-                ("systemctl", "--user", "start", "agentsync.service"),
-                ("systemctl", "--user", "stop", "agentsync.service"),
-                (("systemctl", "--user", "disable", "--now", "agentsync.service"),),
-                ("systemctl", "--user", "is-active", "agentsync.service"),
+                ("systemctl", "--user", "start", "skillsinc.service"),
+                ("systemctl", "--user", "stop", "skillsinc.service"),
+                (("systemctl", "--user", "disable", "--now", "skillsinc.service"),),
+                ("systemctl", "--user", "is-active", "skillsinc.service"),
             )
-        path = config_root / "autostart/agentsync.desktop"
+        path = config_root / "autostart/skillsinc.desktop"
         return ServiceDefinition(
             path,
             (
-                "[Desktop Entry]\nType=Application\nName=AgentSync\n"
+                "[Desktop Entry]\nType=Application\nName=SkillSinc\n"
                 f"Exec={command}\nTerminal=false\n"
             ).encode(),
             (),

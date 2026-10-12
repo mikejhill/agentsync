@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol
 
-from agentsync.jsonutil import Json, JsonObject
+from skillsinc.jsonutil import Json, JsonObject
 
 
 @dataclass(frozen=True, slots=True)

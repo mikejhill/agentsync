@@ -10,11 +10,11 @@ from typing import override
 import pytest
 from tests.conftest import Sandbox
 
-from agentsync.config import Configuration, Route, Source
-from agentsync.engine import DistributionPlanner, Engine
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json
-from agentsync.models import PackageFile, Snapshot, SourceProvider
+from skillsinc.config import Configuration, Route, Source
+from skillsinc.engine import DistributionPlanner, Engine
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json
+from skillsinc.models import PackageFile, Snapshot, SourceProvider
 
 
 class TestEngine:

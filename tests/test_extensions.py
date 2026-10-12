@@ -9,14 +9,14 @@ from pathlib import Path
 import pytest
 from tests.conftest import Sandbox
 
-from agentsync.config import Destination, Source, Step
-from agentsync.engine import Engine
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.models import Customization, Output, Snapshot
-from agentsync.readers import PackageReader
-from agentsync.sources import LocalSource
-from agentsync.transforms import TransformRegistry
+from skillsinc.config import Destination, Source, Step
+from skillsinc.engine import Engine
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.models import Customization, Output, Snapshot
+from skillsinc.readers import PackageReader
+from skillsinc.sources import LocalSource
+from skillsinc.transforms import TransformRegistry
 
 
 class FixtureProvider:
@@ -73,10 +73,10 @@ class TestInstalledExtensions:
     def entries(*, group: str, name: str) -> tuple[importlib.metadata.EntryPoint, ...]:
         """Return real entry points pointing at independently defined test plugins."""
         classes = {
-            "agentsync.sources": "FixtureProvider",
-            "agentsync.readers": "FixtureReader",
-            "agentsync.transformations": "FixtureTransformation",
-            "agentsync.renderers": "FixtureRenderer",
+            "skillsinc.sources": "FixtureProvider",
+            "skillsinc.readers": "FixtureReader",
+            "skillsinc.transformations": "FixtureTransformation",
+            "skillsinc.renderers": "FixtureRenderer",
         }
         return (
             importlib.metadata.EntryPoint(
@@ -124,6 +124,6 @@ class TestInstalledExtensions:
         """A loadable class without apply is an invalid transformation."""
         return (
             importlib.metadata.EntryPoint(
-                name, "agentsync.readers:PackageReader", group
+                name, "skillsinc.readers:PackageReader", group
             ),
         )

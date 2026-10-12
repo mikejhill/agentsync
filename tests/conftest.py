@@ -7,9 +7,9 @@ from pathlib import Path
 
 import pytest
 
-from agentsync.config import Configuration, Settings
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.paths import XdgPaths
+from skillsinc.config import Configuration, Settings
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.paths import XdgPaths
 
 
 @dataclass(frozen=True, slots=True)
@@ -86,5 +86,5 @@ def isolated_home(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
 
 @pytest.fixture
 def sandbox(tmp_path: Path) -> Sandbox:
-    """Create a complete isolated AgentSync scenario."""
+    """Create a complete isolated SkillSinc scenario."""
     return Sandbox(tmp_path, XdgPaths.discover())

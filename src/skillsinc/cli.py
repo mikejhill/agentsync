@@ -7,7 +7,7 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
-from agentsync import __version__
+from skillsinc import __version__
 
 
 @dataclass(frozen=True, slots=True)
@@ -31,11 +31,11 @@ class CommandLine:
     def parse(self, argv: Sequence[str] | None = None) -> Command:
         """Convert an argparse namespace immediately into typed values."""
         parser = argparse.ArgumentParser(
-            prog="agentsync",
+            prog="skillsinc",
             description="Distribute agent customizations from user-owned sources.",
         )
         parser.add_argument(
-            "--version", action="version", version=f"AgentSync {__version__}"
+            "--version", action="version", version=f"SkillSinc {__version__}"
         )
         common = argparse.ArgumentParser(add_help=False)
         common.add_argument(

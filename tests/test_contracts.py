@@ -7,12 +7,12 @@ from pathlib import Path
 import pytest
 import tomlkit
 
-from agentsync.config import Destination
-from agentsync.contracts import ContractRegistry, HarnessRenderer
-from agentsync.exceptions import ConfigurationError, ConversionError
-from agentsync.jsonutil import Json, JsonValue
-from agentsync.models import Customization, PackageFile
-from agentsync.readers import Frontmatter
+from skillsinc.config import Destination
+from skillsinc.contracts import ContractRegistry, HarnessRenderer
+from skillsinc.exceptions import ConfigurationError, ConversionError
+from skillsinc.jsonutil import Json, JsonValue
+from skillsinc.models import Customization, PackageFile
+from skillsinc.readers import Frontmatter
 
 
 class TestHarnessContracts:

@@ -11,13 +11,13 @@ from typing import override
 import pytest
 from tests.conftest import Sandbox
 
-from agentsync.__main__ import Application
-from agentsync.cli import CommandLine
-from agentsync.engine import Engine
-from agentsync.exceptions import AppError
-from agentsync.jsonutil import JsonObject
-from agentsync.services import ServiceManager
-from agentsync.watch import WatchCoordinator
+from skillsinc.__main__ import Application
+from skillsinc.cli import CommandLine
+from skillsinc.engine import Engine
+from skillsinc.exceptions import AppError
+from skillsinc.jsonutil import JsonObject
+from skillsinc.services import ServiceManager
+from skillsinc.watch import WatchCoordinator
 
 
 class TestCLI:
@@ -122,7 +122,7 @@ class TestCLI:
             [
                 sys.executable,
                 "-m",
-                "agentsync",
+                "skillsinc",
                 "contracts",
                 "show",
                 "claude",
@@ -213,7 +213,7 @@ class TestServiceManager:
         )
         definition = manager.definition()
         text = definition.content.decode("utf-16" if platform == "win32" else "utf-8")
-        assert "agentsync" in text
+        assert "skillsinc" in text
         assert "--config-file" in text
         if platform == "win32":
             assert "Hidden>true" in text

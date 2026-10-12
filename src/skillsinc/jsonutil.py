@@ -5,7 +5,7 @@ from __future__ import annotations
 import builtins
 import json
 
-from agentsync.exceptions import ConfigurationError
+from skillsinc.exceptions import ConfigurationError
 
 type JsonValue = (
     str | int | float | bool | list[JsonValue] | dict[str, JsonValue] | None

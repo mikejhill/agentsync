@@ -14,11 +14,11 @@ import time
 from dataclasses import dataclass, replace
 from pathlib import Path
 
-from agentsync.config import Configuration, Settings
-from agentsync.engine import Engine
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.paths import XdgPaths
-from agentsync.watch import WatchCoordinator
+from skillsinc.config import Configuration, Settings
+from skillsinc.engine import Engine
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.paths import XdgPaths
+from skillsinc.watch import WatchCoordinator
 
 
 @dataclass(frozen=True, slots=True)
@@ -203,11 +203,11 @@ class MutationGate:
         """Run mutation tests against copied sources; never alter the checkout."""
         results: list[JsonObject] = []
         for module, before, after in cls.MUTANTS:
-            with tempfile.TemporaryDirectory(prefix="agentsync-mutation-") as directory:
+            with tempfile.TemporaryDirectory(prefix="skillsinc-mutation-") as directory:
                 clone = Path(directory)
                 shutil.copytree(root / "src", clone / "src")
                 shutil.copytree(root / "tests", clone / "tests")
-                file = clone / "src/agentsync" / module
+                file = clone / "src/skillsinc" / module
                 text = file.read_text(encoding="utf-8")
                 if text.count(before) != 1:
                     raise RuntimeError(f"Mutation anchor changed: {module}: {before}")
@@ -264,7 +264,7 @@ class QualityApplication:
             succeeded = report["ok"] is True
         else:
             with tempfile.TemporaryDirectory(
-                prefix="agentsync-benchmark-"
+                prefix="skillsinc-benchmark-"
             ) as directory:
                 corpus = Corpus(5, 20, 1024 * 1024) if bool(args.quick) else Corpus()
                 report = BenchmarkSuite(Path(directory), corpus).run()

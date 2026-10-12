@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from agentsync.exceptions import ConversionError
-from agentsync.jsonutil import Json, JsonValue
+from skillsinc.exceptions import ConversionError
+from skillsinc.jsonutil import Json, JsonValue
 
 
 class HookPolicy:

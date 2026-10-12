@@ -8,10 +8,10 @@ import sqlite3
 import tempfile
 from pathlib import Path
 
-from agentsync.exceptions import ConflictError, TransactionError
-from agentsync.jsonutil import Json, JsonObject, JsonValue
-from agentsync.models import Operation, Output
-from agentsync.state import OwnershipStore
+from skillsinc.exceptions import ConflictError, TransactionError
+from skillsinc.jsonutil import Json, JsonObject, JsonValue
+from skillsinc.models import Operation, Output
+from skillsinc.state import OwnershipStore
 
 
 class OutputCodec:
@@ -185,7 +185,7 @@ class TransactionManager:
             path.unlink(missing_ok=True)
             return
         path.parent.mkdir(parents=True, exist_ok=True)
-        descriptor, name = tempfile.mkstemp(prefix=".agentsync-", dir=path.parent)
+        descriptor, name = tempfile.mkstemp(prefix=".skillsinc-", dir=path.parent)
         temporary = Path(name)
         try:
             with os.fdopen(descriptor, "wb") as stream:

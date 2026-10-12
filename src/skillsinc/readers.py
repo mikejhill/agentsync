@@ -10,9 +10,9 @@ import tomlkit
 import yaml
 from tomlkit.exceptions import ParseError
 
-from agentsync.exceptions import ConfigurationError
-from agentsync.jsonutil import Json, JsonObject
-from agentsync.models import Customization, PackageFile, Snapshot
+from skillsinc.exceptions import ConfigurationError
+from skillsinc.jsonutil import Json, JsonObject
+from skillsinc.models import Customization, PackageFile, Snapshot
 
 
 class Frontmatter:

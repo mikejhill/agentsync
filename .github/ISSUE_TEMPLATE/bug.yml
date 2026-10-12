@@ -18,7 +18,7 @@ body:
   - type: input
     id: environment
     attributes:
-      label: AgentSync version, OS, Python, and harness/version/scope
+      label: SkillSinc version, OS, Python, and harness/version/scope
     validations:
       required: true
   - type: textarea

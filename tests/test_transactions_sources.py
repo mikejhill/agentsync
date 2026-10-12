@@ -9,13 +9,13 @@ from typing import override
 import pytest
 from tests.conftest import Sandbox
 
-from agentsync.config import Source
-from agentsync.exceptions import ConflictError, SourceError, TransactionError
-from agentsync.jsonutil import Json
-from agentsync.models import Operation, Output
-from agentsync.sources import GitSource, LocalSource
-from agentsync.state import OwnershipStore
-from agentsync.transactions import OutputCodec, TransactionManager
+from skillsinc.config import Source
+from skillsinc.exceptions import ConflictError, SourceError, TransactionError
+from skillsinc.jsonutil import Json
+from skillsinc.models import Operation, Output
+from skillsinc.sources import GitSource, LocalSource
+from skillsinc.state import OwnershipStore
+from skillsinc.transactions import OutputCodec, TransactionManager
 
 
 class FailingTransaction(TransactionManager):

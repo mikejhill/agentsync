@@ -14,7 +14,7 @@ class Catalog:
         """Create missing versioned catalog files on default initialization."""
         root.mkdir(parents=True, exist_ok=True)
         for name in ("config.schema.json", "default-recipe.json", "contracts-v1.json"):
-            resource = files("agentsync").joinpath("data", name)
+            resource = files("skillsinc").joinpath("data", name)
             Catalog._create(root / name, resource.read_text(encoding="utf-8"))
 
     @staticmethod

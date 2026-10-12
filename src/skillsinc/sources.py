@@ -11,11 +11,11 @@ from pathlib import Path
 
 from filelock import FileLock
 
-from agentsync.config import Source
-from agentsync.exceptions import SourceError
-from agentsync.jsonutil import Json
-from agentsync.models import Digest, PackageFile, Snapshot
-from agentsync.paths import SafePath
+from skillsinc.config import Source
+from skillsinc.exceptions import SourceError
+from skillsinc.jsonutil import Json
+from skillsinc.models import Digest, PackageFile, Snapshot
+from skillsinc.paths import SafePath
 
 
 class LocalSource:
