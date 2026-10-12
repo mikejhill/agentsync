@@ -35,7 +35,7 @@ agentsync explain review
 agentsync watch
 ```
 
-Default destinations are disabled. Existing harness content is never silently imported or adopted. Failed source acquisition retains managed output. See [usage](docs/usage.md) and [configuration](docs/configuration.md).
+Default destinations are disabled. Existing harness content is never silently imported or adopted. Failed source acquisition retains managed output. See [usage](docs/usage.md) and [configuration](docs/configuration.md). The PyPI distribution is `agentsync-customizations`; the installed command remains `agentsync`.
 
 ## Harness coverage
 

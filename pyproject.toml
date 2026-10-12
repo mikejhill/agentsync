@@ -1,5 +1,5 @@
 [project]
-name = "agentsync"
+name = "agentsync-customizations"
 version = "0.1.0"
 description = "Source-authoritative agent customization distribution"
 readme = "README.md"
@@ -117,4 +117,5 @@ version = "1.7.12"
 self-hosted-runner = { labels = ["agentsync-performance"] }
 
 [tool.uv.build-backend]
+module-name = "agentsync"
 source-include = ["docs/**", "tests/**", ".github/**", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "uv.lock"]

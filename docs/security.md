@@ -9,6 +9,7 @@ Ownership, complete scans, collision rejection, path checks, preconditions, and 
 ## Repository controls
 
 - Protected `main`: pull requests, passing `CI` and `Security` checks, resolved conversations, linear history, and blocked deletion/force-push.
+- CodeQL merge protection blocks error-level quality findings and high/critical security alerts.
 - Solo-maintainer policy: zero mandatory approvals; CODEOWNERS requests review without requiring self-approval. Admin bypass is limited to pull requests on `main`.
 - Release tags: updates and deletions blocked, with explicit maintainer/admin emergency bypass.
 - Squash merging and automatic deletion of merged branches; merge commits and rebasing disabled.

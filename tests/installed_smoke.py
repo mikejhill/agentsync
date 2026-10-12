@@ -60,7 +60,7 @@ class InstalledSmoke:
                 sys.executable,
                 "--from",
                 str(self.wheel),
-                "agentsync",
+                "agentsync-customizations",
             ]
         )
         self.command("init")
